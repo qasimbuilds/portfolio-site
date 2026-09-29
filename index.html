@@ -6,9 +6,38 @@
 <meta name="description" content="Qasim Shaikh — Marketing Automation & AI Workflow Builder. Interactive proof-of-work portfolio for HubSpot, n8n, OpenAI, CRM and revenue automation.">
 <meta name="theme-color" content="#05070b">
 
-<!-- Profile Picture Favicon -->
-<link rel="icon" type="image/png" href="Qasim-consultant.png">
+<meta name="author" content="Qasim Shaikh">
+<link rel="canonical" href="https://qasimbuilds.online/">
+
+<!-- Favicon / Google Search site icon -->
+<link rel="icon" type="image/png" sizes="48x48" href="Qasim-consultant.png">
+<link rel="icon" type="image/png" sizes="96x96" href="Qasim-consultant.png">
 <link rel="apple-touch-icon" href="Qasim-consultant.png">
+
+<meta property="og:title" content="Qasim Shaikh — HubSpot CRM & Automation">
+<meta property="og:description" content="Marketing Automation portfolio featuring HubSpot CRM, n8n, OpenAI, APIs, lead routing, CRM automation and AI workflow systems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://qasimbuilds.online/">
+<meta property="og:image" content="Qasim-consultant.png">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Qasim Shaikh",
+  "url":"https://qasimbuilds.online/",
+  "jobTitle":"Marketing Automation Specialist",
+  "sameAs":[
+    "https://www.linkedin.com/in/qasim-shaikh-/"
+  ],
+  "worksFor":{
+    "@type":"Organization",
+    "name":"FutureTech AI",
+    "url":"https://futuretechai.cloud/"
+  }
+}
+</script>
+
 <title>Qasim Shaikh — Automation Systems</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
@@ -46,24 +75,46 @@ section{padding:105px 0}.sectionhead{display:flex;justify-content:space-between;
 .cta{padding:75px 0 95px;text-align:center;border-top:1px solid var(--line);position:relative}.cta h2{font:700 clamp(42px,7vw,80px) "Space Grotesk";letter-spacing:-.065em;margin:0 auto 18px;max-width:850px}.cta p{color:#7f8a9b}.footer{border-top:1px solid var(--line);padding:22px 0;color:#5f6b7c;font:10px "DM Mono";display:flex;justify-content:space-between;gap:15px}
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}.reveal.show{opacity:1;transform:none}.progress{position:fixed;z-index:100;top:0;left:0;height:2px;background:var(--cyan);width:0;box-shadow:0 0 12px var(--cyan)}
 .glow{position:fixed;pointer-events:none;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(99,230,255,.055),transparent 65%);transform:translate(-50%,-50%);z-index:-1}
-
-/* ================================
-   WHATSAPP CONTACT BUTTON
-   ================================ */
-.whatsapp-float{position:fixed;right:24px;bottom:24px;z-index:9999;width:58px;height:58px;display:flex;align-items:center;justify-content:center;background:#25D366;color:#fff;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 25px rgba(37,211,102,.22);transition:transform .25s ease,box-shadow .25s ease}
-.whatsapp-float:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 15px 38px rgba(0,0,0,.45),0 0 35px rgba(37,211,102,.35)}
-.whatsapp-float svg{width:29px;height:29px;fill:currentColor}
-.whatsapp-tooltip{position:absolute;right:70px;top:50%;transform:translateY(-50%);white-space:nowrap;padding:8px 11px;border:1px solid var(--line);border-radius:8px;background:#0b1119;color:#dce6f2;font-size:11px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s ease}
-.whatsapp-float:hover .whatsapp-tooltip{opacity:1}
-@media(max-width:650px){.whatsapp-float{right:16px;bottom:16px;width:54px;height:54px}.whatsapp-tooltip{display:none}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:65px}.heroart{max-width:720px}.command{transform:none}.blueprint,.calculator,.about,.credentials{grid-template-columns:1fr}.bptext,.calcform{border-right:0;border-bottom:1px solid var(--line)}.workgrid{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}.navlinks{display:none}}
 @media(max-width:600px){.wrap{width:min(100% - 26px,var(--max))}.navin{height:62px}.navcta{padding:8px 11px}.hero{min-height:auto;padding:55px 0 65px}h1{font-size:51px}.hero p{font-size:15px}.stats{gap:20px}.stat strong{font-size:23px}.command{min-height:400px;padding:13px}.flow{height:295px;padding:10px 0}.node{grid-template-columns:40px 1fr}.node .tag{display:none}.icon{width:39px;height:39px}.flow:before{left:28px}.sectionhead{display:block}.sectionhead p{margin-top:14px}.labtop{display:block}.labtop span{display:block;margin-top:8px}.scenarios{padding:15px}.bptext,.bpnodes,.calcform,.calcresult{padding:24px}.resultgrid,.facts{grid-template-columns:1fr 1fr}.workgrid{grid-template-columns:1fr}.project{min-height:250px}.footer{display:block;line-height:1.8}.footer span:last-child{display:block;margin-top:6px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}.glow{display:none}}
+
+/* Direct WhatsApp contact */
+.whatsapp-float{
+  position:fixed;right:24px;bottom:24px;z-index:9999;width:58px;height:58px;
+  display:flex;align-items:center;justify-content:center;background:#25D366;color:#fff;
+  border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 25px rgba(37,211,102,.22);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.whatsapp-float:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 15px 38px rgba(0,0,0,.45),0 0 35px rgba(37,211,102,.35)}
+.whatsapp-float svg{width:29px;height:29px;fill:currentColor}
+.whatsapp-tooltip{
+  position:absolute;right:70px;top:50%;transform:translateY(-50%);white-space:nowrap;
+  padding:8px 11px;border:1px solid var(--line);border-radius:8px;background:#0b1119;
+  color:#dce6f2;font-size:11px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s ease
+}
+.whatsapp-float:hover .whatsapp-tooltip{opacity:1}
+.youtube-btn:hover{border-color:rgba(255,80,80,.55)}
+@media(max-width:650px){
+  .whatsapp-float{right:16px;bottom:16px;width:54px;height:54px}
+  .whatsapp-tooltip{display:none}
+}
+
 </style>
 </head>
 <body>
 <div class="progress"></div><div class="glow"></div><div class="topline"></div>
-<nav><div class="wrap navin"><a class="logo" href="#"><b>Q</b>ASIM.SHAIKH</a><div class="navlinks"><a href="#systems">Systems</a><a href="#lab">Interactive Lab</a><a href="#about">About</a><a href="#contact">Contact</a></div><a class="navcta" href="mailto:skqasim923@gmail.com">Let's talk ↗</a></div></nav>
+<a class="whatsapp-float"
+   href="https://wa.me/919403140692?text=Hi%20Qasim%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20CRM%20or%20automation%20project."
+   target="_blank" rel="noopener noreferrer" aria-label="Chat with Qasim on WhatsApp">
+  <span class="whatsapp-tooltip">Chat with me on WhatsApp</span>
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M19.11 17.23c-.29-.15-1.71-.84-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.2-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.11 4.51.71.31 1.26.49 1.69.63.71.23 1.35.21 2.9-.7 1.55-.91 2.51-2.19 2.6-2.35.09-.17.09-.31.02-.46-.07-.15-.26-.23-.55-.38z"/>
+    <path d="M16.02 3C8.83 3 3 8.82 3 16c0 2.3.61 4.46 1.68 6.33L3 29l6.86-1.65A12.95 12.95 0 0 0 16.02 29C23.18 29 29 23.18 29 16S23.18 3 16.02 3zm0 23.6c-2.02 0-3.91-.59-5.49-1.61l-.39-.25-4.07.98 1-3.97-.26-.41A10.9 10.9 0 1 1 16.02 26.6z"/>
+  </svg>
+</a>
+
+<nav><div class="wrap navin"><a class="logo" href="#"><b>Q</b>ASIM.SHAIKH</a><div class="navlinks"><a href="#recent-projects">Projects</a><a href="#lab">Interactive Lab</a><a href="#about">About</a><a href="#contact">Contact</a></div><a class="navcta" href="mailto:skqasim923@gmail.com">Let's talk ↗</a></div></nav>
 
 <main>
 <section class="wrap hero">
@@ -71,8 +122,8 @@ section{padding:105px 0}.sectionhead{display:flex;justify-content:space-between;
 <div class="eyebrow">Marketing Automation · AI · CRM</div>
 <h1>I build <span class="grad">systems</span> that turn manual work into automation.</h1>
 <p>Production-style automation builds across HubSpot, n8n, OpenAI and APIs — designed around real processes, not tool demos.</p>
-<div class="buttons"><a class="btn primary" href="#systems">Explore my systems ↓</a><a class="btn" href="https://drive.google.com/drive/folders/1Mffjgi9EfVrvHQqLFDPZmlVz44raPpQ6?usp=sharing" target="_blank">View résumé ↗</a><a class="btn" href="https://www.linkedin.com/in/qasim-shaikh-/" target="_blank">LinkedIn ↗</a></div>
-<div class="stats"><div class="stat"><strong>04</strong><span>systems built</span></div><div class="stat"><strong>13+</strong><span>workflows</span></div><div class="stat"><strong>08</strong><span>APIs / platforms</span></div></div>
+<div class="buttons"><a class="btn primary" href="#systems">Explore my systems ↓</a><a class="btn" href="https://drive.google.com/drive/folders/1Mffjgi9EfVrvHQqLFDPZmlVz44raPpQ6?usp=sharing" target="_blank" rel="noopener noreferrer">View résumé ↗</a><a class="btn" href="https://www.linkedin.com/in/qasim-shaikh-/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="https://futuretechai.cloud/" target="_blank" rel="noopener noreferrer">FutureTech AI ↗</a><a class="btn youtube-btn" href="YOUR_YOUTUBE_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Open Qasim Shaikh YouTube">YouTube ↗</a></div>
+<div class="stats"><div class="stat"><strong>07</strong><span>systems built</span></div><div class="stat"><strong>13+</strong><span>workflows</span></div><div class="stat"><strong>08</strong><span>APIs / platforms</span></div></div>
 </div>
 <div class="heroart reveal">
 <div class="command">
@@ -105,7 +156,38 @@ section{padding:105px 0}.sectionhead{display:flex;justify-content:space-between;
 </div>
 </section>
 
-<section class="wrap reveal" id="systems"><div class="sectionhead"><div><div class="kicker">02 / Selected systems</div><h2>Proof of work.</h2></div><p>Compact overview here. Each system has its own page with the deeper Problem → Solution → Architecture breakdown.</p></div>
+
+<section class="wrap reveal" id="recent-projects">
+<div class="sectionhead">
+  <div><div class="kicker">02 / Recent builds</div><h2>Latest proof of work.</h2></div>
+  <p>Three recent project pages covering a real HubSpot client engagement and two self-directed automation systems.</p>
+</div>
+<div class="projects">
+  <a class="project" href="projects/demanzo.html">
+    <span class="num">CLIENT / 01</span>
+    <h3>Demanzo — HubSpot CRM Audit</h3>
+    <p>HubSpot CRM audit, cleanup, workflow validation, deal-stage follow-up automation and client handover documentation.</p>
+    <div class="chips"><span>HubSpot CRM</span><span>Marketing Hub</span><span>Workflow Automation</span><span>Client Project</span></div>
+    <span class="arrow">↗</span>
+  </a>
+  <a class="project" href="projects/novascale.html">
+    <span class="num">SYSTEM / 02</span>
+    <h3>NovaScale — Lead Routing & Sales SLA</h3>
+    <p>MQL qualification, regional routing, sales handoff, 24-hour SLA checks, meeting outcomes and exception handling.</p>
+    <div class="chips"><span>HubSpot</span><span>Lead Qualification</span><span>Routing</span><span>SLA</span></div>
+    <span class="arrow">↗</span>
+  </a>
+  <a class="project" href="projects/multichannel-outreach.html">
+    <span class="num">SYSTEM / 03</span>
+    <h3>Multi-Channel Lead Outreach</h3>
+    <p>n8n orchestration for AI personalization, timed follow-ups, channel fallback, reply detection, stop conditions and CRM sync.</p>
+    <div class="chips"><span>n8n</span><span>OpenAI</span><span>APIs</span><span>CRM Sync</span></div>
+    <span class="arrow">↗</span>
+  </a>
+</div>
+</section>
+
+<section class="wrap reveal" id="systems"><div class="sectionhead"><div><div class="kicker">03 / Selected systems</div><h2>Proof of work.</h2></div><p>Compact overview here. Each system has its own page with the deeper Problem → Solution → Architecture breakdown.</p></div>
 <div class="projects">
 <a class="project" href="projects/leadflow-ai.html"><span class="num">SYSTEM / 01</span><h3>LeadFlow AI</h3><p>Lead capture → AI qualification → personalized outreach → CRM → booking.</p><div class="chips"><span>n8n</span><span>OpenAI</span><span>HubSpot</span><span>Calendly</span></div><span class="arrow">↗</span></a>
 <a class="project" href="projects/lazarus-engine.html"><span class="num">SYSTEM / 02</span><h3>Lazarus Engine</h3><p>Dormant lead detection, viability scoring and multi-channel reactivation logic.</p><div class="chips"><span>n8n</span><span>OpenAI</span><span>WhatsApp</span><span>SendGrid</span></div><span class="arrow">↗</span></a>
@@ -114,7 +196,7 @@ section{padding:105px 0}.sectionhead{display:flex;justify-content:space-between;
 </div>
 </section>
 
-<section class="wrap reveal"><div class="sectionhead"><div><div class="kicker">03 / Operating model</div><h2>How I work.</h2></div><p>Automation starts with process clarity. The platform comes after the workflow is understood.</p></div>
+<section class="wrap reveal"><div class="sectionhead"><div><div class="kicker">04 / Operating model</div><h2>How I work.</h2></div><p>Automation starts with process clarity. The platform comes after the workflow is understood.</p></div>
 <div class="workgrid">
 <div class="workstep"><span>01</span><h3>Map</h3><p>Understand the current journey, inputs, handoffs and bottlenecks.</p></div>
 <div class="workstep"><span>02</span><h3>Identify</h3><p>Separate repetitive work from decisions that still need humans.</p></div>
@@ -123,9 +205,9 @@ section{padding:105px 0}.sectionhead{display:flex;justify-content:space-between;
 <div class="workstep"><span>05</span><h3>Test</h3><p>Trace edge cases, failures and handoffs before calling it done.</p></div>
 </div></section>
 
-<section class="wrap reveal" id="about"><div class="about"><div class="portrait"><img src="Qasim-Shaikh.jpg" alt="Qasim Shaikh"></div><div><div class="kicker">04 / About</div><h2>Operations mindset.<br>Automation execution.</h2><p>I’m an early-career Marketing Automation builder focused on HubSpot, n8n, OpenAI APIs and CRM workflows. My builds are self-directed practice projects created to demonstrate how I approach real automation problems — from lead capture and nurturing to reactivation and outreach.</p><p>My MBA in Operations & Supply Chain shapes how I think: map the process, remove unnecessary friction, automate the repeatable parts, and keep humans in the loop where judgment matters.</p><div class="facts"><div class="fact"><strong>8.18</strong><span>MBA CGPA</span></div><div class="fact"><strong>2026</strong><span>HubSpot certified</span></div><div class="fact"><strong>∞</strong><span>curiosity</span></div></div></div></div></section>
+<section class="wrap reveal" id="about"><div class="about"><div class="portrait"><img src="Qasim-Shaikh.jpg" alt="Qasim Shaikh"></div><div><div class="kicker">05 / About</div><h2>Operations mindset.<br>Automation execution.</h2><p>I’m an early-career Marketing Automation builder focused on HubSpot, n8n, OpenAI APIs and CRM workflows. My builds are self-directed practice projects created to demonstrate how I approach real automation problems — from lead capture and nurturing to reactivation and outreach.</p><p>My MBA in Operations & Supply Chain shapes how I think: map the process, remove unnecessary friction, automate the repeatable parts, and keep humans in the loop where judgment matters.</p><div class="facts"><div class="fact"><strong>8.18</strong><span>MBA CGPA</span></div><div class="fact"><strong>2026</strong><span>HubSpot certified</span></div><div class="fact"><strong>∞</strong><span>curiosity</span></div></div></div></div></section>
 
-<section class="wrap reveal"><div class="sectionhead"><div><div class="kicker">05 / Credentials</div><h2>Built with intent.</h2></div><p>Selected credentials supporting the practical work shown above.</p></div>
+<section class="wrap reveal"><div class="sectionhead"><div><div class="kicker">06 / Credentials</div><h2>Built with intent.</h2></div><p>Selected credentials supporting the practical work shown above.</p></div>
 <div class="credentials">
 <div class="cred"><h3>HubSpot Marketing Hub</h3><p><b>HubSpot</b> · July 2026<br>Marketing automation, campaigns and platform fundamentals.</p></div>
 <div class="cred"><h3>Digital Marketing</h3><p><b>IIM Bangalore / SWAYAM</b> · 75.5% · Dec 2025</p></div>
@@ -133,18 +215,9 @@ section{padding:105px 0}.sectionhead{display:flex;justify-content:space-between;
 <div class="cred"><h3>Google Data Analytics</h3><p><b>Coursera</b> · Data analysis and operational decision support.</p></div>
 </div></section>
 
-<section class="cta reveal" id="contact"><div class="wrap"><div class="kicker">06 / Next step</div><h2>Have a workflow worth <span class="grad">automating?</span></h2><p>I'm open to Marketing Automation, Marketing Ops, RevOps and AI automation opportunities.</p><div class="buttons" style="justify-content:center"><a class="btn primary" href="mailto:skqasim923@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/qasim-shaikh-/" target="_blank">Connect on LinkedIn ↗</a></div></div></section>
+<section class="cta reveal" id="contact"><div class="wrap"><div class="kicker">07 / Next step</div><h2>Have a workflow worth <span class="grad">automating?</span></h2><p>I'm open to Marketing Automation, Marketing Ops, RevOps and AI automation opportunities.</p><div class="buttons" style="justify-content:center"><a class="btn primary" href="mailto:skqasim923@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/qasim-shaikh-/" target="_blank">Connect on LinkedIn ↗</a><a class="btn" href="https://wa.me/919403140692?text=Hi%20Qasim%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20CRM%20or%20automation%20project." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a class="btn" href="YOUR_YOUTUBE_URL_HERE" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div></div></section>
 </main>
-<!-- Floating WhatsApp Contact -->
-<a class="whatsapp-float" href="https://wa.me/919403140692?text=Hi%20Qasim%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20CRM%20or%20automation%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat with Qasim on WhatsApp">
-<span class="whatsapp-tooltip">Chat with me on WhatsApp</span>
-<svg viewBox="0 0 32 32" aria-hidden="true">
-<path d="M19.11 17.23c-.29-.15-1.71-.84-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.94 1.14-.17.2-.35.22-.64.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.11 4.51.71.31 1.26.49 1.69.63.71.23 1.35.2 1.86.12.57-.08 1.71-.7 1.95-1.37.24-.67.24-1.24.17-1.37-.07-.12-.27-.2-.57-.35z"/>
-<path d="M16.02 3.2c-7.05 0-12.78 5.73-12.78 12.78 0 2.25.59 4.45 1.71 6.38L3.13 28.8l6.59-1.73a12.73 12.73 0 0 0 6.3 1.66h.01c7.05 0 12.78-5.73 12.78-12.78S23.07 3.2 16.02 3.2zm0 23.44h-.01a10.63 10.63 0 0 1-5.42-1.48l-.39-.23-3.91 1.03 1.04-3.81-.25-.39a10.65 10.65 0 1 1 8.94 4.88z"/>
-</svg>
-</a>
-
-<footer><div class="wrap footer"><span>© 2026 Qasim Shaikh</span><span>Marketing Automation · AI Workflows · CRM Systems</span></div></footer>
+<footer><div class="wrap footer"><span>© 2026 Qasim Shaikh</span><span>Marketing Automation · AI Workflows · CRM Systems · <a href="https://futuretechai.cloud/" target="_blank" rel="noopener noreferrer">FutureTech AI ↗</a></span></div></footer>
 
 <script>
 const scenarios=[
