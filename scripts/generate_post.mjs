@@ -1,14 +1,13 @@
 import fs from "fs";
 import path from "path";
 
-const API_KEY = process.env.OPENAI_API_KEY;
+const API_KEY = process.env.GEMINI_API_KEY;
 const POSTS_DIR = "./blog";
 const BLOG_INDEX = "./blog/index.html";
 const SITEMAP_FILE = "./sitemap.xml";
 const SITE_URL = "https://qasimbuilds.online";
 
-// High-intent buyer & hiring-manager keywords tailored to your exact portfolio builds
-const TOPICS = [
+const SEED_TOPICS = [
   {
     title: "How to Fix Orphan Contacts and Deals in HubSpot CRM Without Creating Duplicates",
     keyword: "fix orphan contacts and deals in HubSpot",
@@ -48,54 +47,88 @@ const TOPICS = [
 ];
 
 function escapeHtml(str = "") {
-  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function slugify(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+async function callGemini(prompt) {
+  const res = await fetch(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": API_KEY
+      },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          responseMimeType: "application/json"
+        }
+      })
+    }
+  );
+
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(`Gemini API Error (${res.status}): ${JSON.stringify(data)}`);
+  }
+
+  let rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+  rawText = rawText.replace(/^```json\s*/i, "").replace(/```\s*$/i, "").trim();
+  return JSON.parse(rawText);
 }
 
 async function run() {
-  if (!API_KEY) throw new Error("Missing OPENAI_API_KEY secret.");
-  if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
-
-  const existing = fs.readdirSync(POSTS_DIR);
-  const item = TOPICS.find(t => {
-    const slug = t.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-    return !existing.includes(`${slug}.html`);
-  });
-
-  if (!item) {
-    console.log("All queued topics are already published.");
-    return;
+  if (!API_KEY) {
+    throw new Error("Missing GEMINI_API_KEY in GitHub Repository Secrets.");
+  }
+  if (!fs.existsSync(POSTS_DIR)) {
+    fs.mkdirSync(POSTS_DIR, { recursive: true });
   }
 
-  const slug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+  const existingFiles = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith(".html") && f !== "index.html");
+
+  // Pick next unpublished topic from seed list, or ask Gemini to invent a fresh RevOps/n8n topic
+  let item = SEED_TOPICS.find(t => !existingFiles.includes(`${slugify(t.title)}.html`));
+
+  if (!item) {
+    const newIdea = await callGemini(
+      `Suggest 1 new, specific B2B SEO blog topic for Qasim Shaikh (HubSpot CRM Specialist & n8n Automation Engineer).
+Already published slugs: ${existingFiles.join(", ")}.
+Return ONLY valid JSON: {"title": "...", "keyword": "...", "tag": "REVOPS & AUTOMATION"}`
+    );
+    item = {
+      title: newIdea.title,
+      keyword: newIdea.keyword,
+      tag: newIdea.tag || "REVOPS & AUTOMATION",
+      relatedProject: { name: "Demanzo — HubSpot CRM Audit", url: "../projects/demanzo.html" }
+    };
+  }
+
+  const slug = slugify(item.title);
   const today = new Date().toISOString().split("T")[0];
 
   const prompt = `You are Qasim Shaikh, a Marketing Automation & HubSpot CRM Specialist (portfolio: https://qasimbuilds.online).
-Write an authoritative, step-by-step technical playbook on: "${item.title}".
+Write a practical, step-by-step technical playbook on: "${item.title}".
 Target search keyword: "${item.keyword}".
-Audience: B2B founders, RevOps managers, and hiring managers looking for a HubSpot & n8n Automation Builder.
+Audience: B2B founders, RevOps managers, and hiring managers looking for a HubSpot & n8n Automation Specialist.
 
 Return ONLY valid JSON with these exact keys:
 - "title": SEO-optimized headline (max 68 chars)
 - "metaDescription": Compelling meta description (135-155 chars)
 - "summary": 2-sentence card summary for the blog index page
-- "htmlBody": Clean semantic HTML (900-1200 words) using <h2>, <h3>, <p>, <ul>, <ol>, and <pre><code>. Include exact HubSpot property/filter names or n8n node logic, common pitfalls ("Watch Out"), and concrete verification steps. No <h1> tag.
+- "htmlBody": Clean semantic HTML (900-1200 words) using <h2>, <h3>, <p>, <ul>, <ol>, and <pre><code>. Include exact HubSpot property/filter names or n8n node logic, common pitfalls ("Watch Out"), and concrete verification steps. Do NOT include an <h1> tag.
 - "faqs": Array of 3 objects [{"question": "...", "answer": "..."}] answering real buyer questions for AI search citation.`;
 
-  const res = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${API_KEY}`
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      response_format: { type: "json_object" },
-      messages: [{ role: "user", content: prompt }]
-    })
-  });
-
-  const data = await res.json();
-  const article = JSON.parse(data.choices[0].message.content);
+  const article = await callGemini(prompt);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -198,7 +231,6 @@ code{font-family:"DM Mono",monospace;color:var(--cyan);font-size:14px}
 
   fs.writeFileSync(path.join(POSTS_DIR, `${slug}.html`), postHtml, "utf8");
 
-  // Inject card at top of blog/index.html
   if (fs.existsSync(BLOG_INDEX)) {
     let idx = fs.readFileSync(BLOG_INDEX, "utf8");
     const card = `<!-- POSTS_LIST -->
@@ -214,7 +246,6 @@ code{font-family:"DM Mono",monospace;color:var(--cyan);font-size:14px}
     fs.writeFileSync(BLOG_INDEX, idx, "utf8");
   }
 
-  // Add URL to sitemap.xml
   if (fs.existsSync(SITEMAP_FILE)) {
     let sm = fs.readFileSync(SITEMAP_FILE, "utf8");
     const entry = `  <url><loc>${SITE_URL}/blog/${slug}.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>\n</urlset>`;
