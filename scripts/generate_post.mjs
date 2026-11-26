@@ -96,7 +96,6 @@ async function run() {
 
   const existingFiles = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith(".html") && f !== "index.html");
 
-  // Pick next unpublished topic from seed list, or ask Gemini to invent a fresh RevOps/n8n topic
   let item = SEED_TOPICS.find(t => !existingFiles.includes(`${slugify(t.title)}.html`));
 
   if (!item) {
